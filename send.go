@@ -51,7 +51,7 @@ func (c *Client) SendMultiPush(ctx context.Context, title, body, image string, t
 	if response != nil {
 		log.Println("Response success count : ", response.SuccessCount)
 		log.Println("Response failure count : ", response.FailureCount)
-
+		log.Println("Response : ", response)
 	}
 
 	return nil
