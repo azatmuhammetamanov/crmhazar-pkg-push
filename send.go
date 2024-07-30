@@ -6,14 +6,16 @@ import (
 	"log"
 )
 
-func (c *Client) SendPush(ctx context.Context, title, body, image, token string) error {
+func (c *Client) SendPush(ctx context.Context, title, body, image, page, action, token string) error {
 	message := &messaging.Message{
 		Data: map[string]string{
-			"score": "850",
-			"time":  "2:45",
-			"title": title,
-			"body":  body,
-			"image": image,
+			"score":  "850",
+			"time":   "2:45",
+			"title":  title,
+			"body":   body,
+			"image":  image,
+			"page":   page,
+			"action": action,
 		},
 
 		Token: token,
