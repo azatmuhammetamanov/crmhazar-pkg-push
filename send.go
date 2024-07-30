@@ -28,14 +28,16 @@ func (c *Client) SendPush(ctx context.Context, title, body, image, token string)
 	return nil
 }
 
-func (c *Client) SendMultiPush(ctx context.Context, title, body, image string, tokens []string) error {
+func (c *Client) SendMultiPush(ctx context.Context, title, body, image, page, action string, tokens []string) error {
 	message := &messaging.MulticastMessage{
 		Data: map[string]string{
-			"score": "850",
-			"time":  "2:45",
-			"title": title,
-			"body":  body,
-			"image": image,
+			"score":  "850",
+			"time":   "2:45",
+			"title":  title,
+			"body":   body,
+			"image":  image,
+			"page":   page,
+			"action": action,
 		},
 		Notification: &messaging.Notification{
 			Title: title,
@@ -51,7 +53,6 @@ func (c *Client) SendMultiPush(ctx context.Context, title, body, image string, t
 	if response != nil {
 		log.Println("Response success count : ", response.SuccessCount)
 		log.Println("Response failure count : ", response.FailureCount)
-		log.Println("Response : ", response)
 	}
 
 	return nil
