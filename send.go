@@ -17,7 +17,6 @@ func (c *Client) SendPush(ctx context.Context, title, body, image, page, action,
 			"page":   page,
 			"action": action,
 		},
-
 		Token: token,
 	}
 
@@ -40,10 +39,6 @@ func (c *Client) SendMultiPush(ctx context.Context, title, body, image, page, ac
 			"image":  image,
 			"page":   page,
 			"action": action,
-		},
-		Notification: &messaging.Notification{
-			Title: title,
-			Body:  body,
 		},
 		Tokens: tokens,
 	}
